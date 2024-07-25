@@ -1,0 +1,146 @@
+.nav-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+
+}
+.nav-container{
+    max-width: 1440px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+   padding-left: 6.4rem;
+    min-height: 136px;
+    position: relative;
+    margin-top: 2rem;
+    position: relative;
+    z-index: 900;
+
+}
+
+
+.divider{
+    max-width: 560px;
+    width: 100%;
+    height: 1px;
+    background-color: #979797;
+    position: absolute;
+    left: 17.6rem;
+}
+.links-container{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4.8rem;
+    max-width: 736px;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 5%);
+    min-height: 96px;
+    padding: 0 6.4rem;
+
+}
+.nav-link{
+    list-style-type: none;
+    text-decoration: none;
+    font-size: 1.6rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--white);
+    letter-spacing: 2px;
+    display: flex;
+    align-items: center;
+    margin-right: -2.5px;
+    padding-bottom: 1px;
+    gap: 1.2rem;
+    width: fit-content;
+    position: relative;
+    cursor: pointer;
+
+}
+.nav-link::before{
+    content: "";
+    width: 100%;
+    height: 3px;
+    background-color:#979797;
+    opacity: 0;
+    position: absolute;
+    bottom: -3.8rem;
+}
+.nav-link:hover:before{
+    transition: opacity .3s ease-in;
+    opacity: 1;
+
+}
+.page-num{
+    font-weight: bold;
+}
+.toggle-container{
+    display: none;
+}
+.close-icon{
+    transform: rotate(180deg) scale(1.6);
+}
+.mask{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 80vw;
+    height: 100%;
+    background-color:rgba(6, 6, 6, 0.701) ;
+    backdrop-filter: blur(10px);
+    z-index: 500;
+}
+
+@media (width <= 1350px) {
+ .divider{
+    display: none;
+ } 
+ .links-container{
+    padding: 0 4.8rem;
+    max-width: 640px;
+ } 
+ .nav-container{
+    padding-left: 4rem;
+ } 
+}
+@media (width < 768px) {
+    .nav-container{
+        padding: 0 4rem;
+    }
+ .links-container{
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100%;
+    margin-left: 30vw;
+    background:none ;
+    width: 100%;
+    display: none;
+    padding: 0;
+ }
+ 
+ .links-container.open{
+    display: flex;
+ } 
+ .nav-link{
+    text-align: left;
+    align-items: flex-start;
+    margin: 0;
+    padding: 0;
+    font-size: 2rem;
+ }
+ .toggle-container{
+    display: flex;
+    cursor: pointer;
+ } 
+ .mask.open{
+    display: block;
+ } 
+ 
+}

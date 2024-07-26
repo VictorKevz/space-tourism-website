@@ -18,7 +18,6 @@ html {
 body {
   width: 100%;
   font-family: "Barlow Condensed", sans-serif;
-  background-color: var(--blue-900);
   overflow-x: hidden;
   color: var(--white);
 
@@ -34,18 +33,19 @@ li{
 }
 .outer-container {
   display: flex;
-  min-height: 1024px;
+  min-height: 888px;
   justify-content: center;
   align-items: center;
   position: relative;
   width: 100%;
+  background-color: var(--blue-900);
 
 }
 
 
 .inner-container {
   width: 100%;
-  min-height: 1024px;
+  min-height: 888px;
   position: relative;
   display: flex;
   flex-direction: column;

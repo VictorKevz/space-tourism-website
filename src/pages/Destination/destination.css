@@ -27,7 +27,7 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  padding-bottom: 4rem;
+  padding: 4rem 0;
 }
 .destination-num {
   font-weight: bold;
@@ -137,8 +137,8 @@
       }
       
       .destination-container{
-        margin-top: 2rem;
-        margin-bottom: 4rem;
+        margin-top: 14.6rem;
+        padding-bottom: 4rem;
       }
       .destination-inner-container {
         flex-direction: column;

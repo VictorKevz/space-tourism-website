@@ -10,7 +10,7 @@ function Home() {
   //   exit: { opacity: 0, y: 60 },
   // };
   return (
-    <motion.div
+    <div
       className="home-wrapper"
       // initial="hidden"
       // animate="visible"
@@ -33,7 +33,7 @@ function Home() {
           <a className="home-link">Explore</a>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

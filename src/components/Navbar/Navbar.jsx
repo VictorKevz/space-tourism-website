@@ -24,13 +24,17 @@ function Navbar() {
               <span className="page-num">00</span>Home
             </Link>
           </li>
+          
           <li>
-          <Link to="/destination" className="nav-link">
-            <span className="page-num">01</span>Destination
+            <Link to="/destination" className="nav-link">
+              <span className="page-num">01</span>Destination
             </Link>
           </li>
-          <li className="nav-link">
-            <span className="page-num">02</span>Crew
+
+          <li>
+            <Link to="/crew" className="nav-link">
+              <span className="page-num">02</span>Crew
+            </Link>
           </li>
           <li className="nav-link">
             <span className="page-num">03</span>Technology

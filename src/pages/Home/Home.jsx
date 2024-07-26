@@ -1,22 +1,22 @@
 import React from "react";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 import "./home.css";
 
 function Home() {
   // Animation variants
   const variants = {
-    hidden: { opacity: 0, y: -60 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 60 },
-  };
+  //   hidden: { opacity: 0, y: -60 },
+  //   visible: { opacity: 1, y: 0 },
+  //   exit: { opacity: 0, y: 60 },
+  // };
   return (
     <motion.div
       className="home-wrapper"
-      initial="hidden"
+{/*       initial="hidden"
       animate="visible"
       exit="exit"
       variants={variants}
-      transition={{ duration: 0.8 }}
+      transition={{ duration: 0.8 }} */}
     >
       <div className="home-container">
         <section className="home-text-container">

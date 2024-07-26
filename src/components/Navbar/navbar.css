@@ -109,7 +109,7 @@
     padding-left: 4rem;
  } 
 }
-@media (width < 768px) {
+@media (width <= 767px) {
     .nav-container{
         padding: 0 4rem;
     }

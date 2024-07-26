@@ -1,24 +1,29 @@
 .crew-wrapper {
+  position: absolute;
+  top: 0;
   z-index: 10;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 1024px;
   background-image: url("../../assets/crew/background-crew-desktop.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
+  /* background-position: right top; */
   overflow-x: hidden;
 }
 .crew-container {
-  margin-top: 9.6rem;
+  padding-top: 15vh;
   max-width: 1110px;
   width: 100%;
   display: flex;
   justify-content: center;
   flex-direction: column;
   position: relative;
+
+  
 }
 .crew-caption {
   font-size: 2.8rem;
@@ -28,7 +33,6 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
-  margin-top: 4rem;
 }
 .crew-num {
   font-weight: bold;
@@ -40,6 +44,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 4rem 0;
+  margin-bottom: -6rem;
+
 }
 .crew-img {
   width: 100%;
@@ -47,9 +54,7 @@
 .crew-text-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   max-width: 540px;
-  min-height: 734px;
 }
 .crew-info-container {
   display: flex;
@@ -75,14 +80,15 @@
   font-weight: normal;
   line-height: 1.8;
   color: var(--blue-300);
-  
+  padding-bottom: 4rem;
+  min-height: 128px;
+
 }
 .crew-links-container {
   display: flex;
   align-items: center;
   gap: 3.2rem;
-  position: absolute;
-  bottom: 3rem;
+  margin-top: 5rem;
 }
 .crew-link {
   width: 1.5rem;
@@ -90,71 +96,62 @@
   border-radius: 50%;
   background-color: #979797;
 }
-.crew-link:hover {
+.crew-link:hover{
   background-color: white;
 }
 .crew-link.active {
   background-color: white;
 }
 
-
-@media (width <= 1160px) {
-  .crew-wrapper {
-    background-image: url("../../assets/destination/background-destination-tablet.jpg");
-    background-size: 100%;
-    padding:  0 4rem ;
-    min-height: 100vh;
-  }
-  .crew-container{
-    margin-top: 12.6rem;
-  }
-  .crew-inner-container {
-    flex-direction: column;
-    justify-content: center;
-    gap: 5rem;
-  }
-  .crew-text-container {
-    min-height: fit-content;
-    text-align: center;
-    margin-top: 4rem;
-  }
-  .crew-links-container {
-    justify-content: center;
-    position: relative;
-    bottom: 0;
-    margin-top: 4rem;
-
-  }
-  .crew-image-container{
-    max-width: 446.8px;
-    width: 100%;
-  }
-  .destination-info-container {
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .destination-title {
-    font-size: clamp(5rem, 8vw, 9.6rem);
-  }
+.destination-parag.europa{
+    letter-spacing: 1px;
 }
-@media (width <= 767px) {
-.crew-wrapper{
-  background-image: url("../../assets/crew/background-crew-mobile.jpg");
-  padding: 0 2rem;
-  text-align: center;
+.destination-parag.mars{
+    letter-spacing: 1.8px;
 }
-.crew-container{
+.destination-stats-container {
+  display: flex;
   align-items: center;
+  gap: 4rem;
+  margin-top: 4rem;
 }
-.crew-name{
-  font-size: clamp(2.4rem, 8vw,3.5rem);
+.avg-distance,
+.travel-time {
+  color: var(--blue-300);
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  font-weight: normal;
+  padding-bottom: 1.2rem;
 }
-.crew-role{
-  font-size: clamp(1.8rem, 8vw,2rem);
+.value {
+  font-size: 2.8rem;
+  font-weight: normal;
+  text-transform: uppercase;
 }
-.crew-image-container{
-  max-width: 271.24px;
-  height: auto;
-}
+@media (width <= 1160px) {
+    .destination-wrapper {
+        background-image: url("../../assets/destination/background-destination-tablet.jpg");
+        background-size: 100%;
+        padding-top: 16vh;
+        padding: 16vh 4rem 0 4rem;
+
+      }
+      .destination-inner-container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 5rem;
+      }
+      .destination-links-container,.destination-stats-container{
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+      .destination-info-container {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+       
+      }
+      .destination-title {
+        font-size: clamp(5rem, 8vw, 9.6rem);
+      }
 }

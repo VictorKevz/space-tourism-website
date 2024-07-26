@@ -1,13 +1,11 @@
 .destination-wrapper {
-  position: absolute;
-  top: 0;
   z-index: 10;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 1024px;
+  min-height: 100vh;
   background-image: url("../../assets/destination/background-destination-desktop.jpg");
   background-repeat: no-repeat;
   background-size: 100%;
@@ -29,6 +27,7 @@
   display: flex;
   align-items: center;
   gap: 2.4rem;
+  padding-bottom: 4rem;
 }
 .destination-num {
   font-weight: bold;
@@ -36,13 +35,12 @@
   letter-spacing: 4.72px;
 }
 .destination-inner-container {
-  margin-top: 9.4rem;
   width: 100%;
-  /* min-height: 734px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 .destination-img {
   width: 100%;
 }
@@ -134,9 +132,13 @@
     .destination-wrapper {
         background-image: url("../../assets/destination/background-destination-tablet.jpg");
         background-size: 100%;
-        padding-top: 16vh;
-        padding: 16vh 4rem 0 4rem;
+        padding: 0 4rem;
 
+      }
+      
+      .destination-container{
+        margin-top: 2rem;
+        margin-bottom: 4rem;
       }
       .destination-inner-container {
         flex-direction: column;
@@ -156,4 +158,11 @@
       .destination-title {
         font-size: clamp(5rem, 8vw, 9.6rem);
       }
+      .destination-image-container{
+        max-width: 300px;
+        width: 100%;
+      }
+}
+@media (width <= 1160px) {
+
 }

@@ -32,19 +32,9 @@ function Crew() {
   return (
     <div className="crew-wrapper">
       <div className="crew-container">
-      <AnimatePresence mode="wait">
-      <motion.div
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={textVariants}
-      transition={{ duration: 0.5 }}
-      >
         <p className="crew-caption">
           <span className="crew-num">02</span>Meet Your Crew
         </p>
-        </motion.div>
-        </AnimatePresence>
         <motion.div
           className="crew-inner-container"
           initial="hidden"

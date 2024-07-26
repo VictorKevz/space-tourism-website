@@ -1,17 +1,16 @@
 .home-wrapper {
-  position: absolute;
-  top: 0;
   z-index: 10;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  min-height: 100vh;
   background-image: url("../../assets/home/background-home-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: right top;
+  position: relative;
 }
 .home-container {
   max-width: 1110px;
@@ -72,6 +71,11 @@
     flex-direction: column;
     justify-content: center;
     gap: 5rem;
+    position: relative;
+    margin-top: 22.4rem;
+    margin-bottom: 12.8rem;
+    bottom: 0;
+
   }
   .home-text-container {
     justify-content: center;

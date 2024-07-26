@@ -9,7 +9,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* transition: all 0.2s ease-in; */
 
 }
 html {
@@ -20,6 +19,8 @@ body {
   font-family: "Barlow Condensed", sans-serif;
   overflow-x: hidden;
   color: var(--white);
+  background-color: var(--blue-900);
+
 
 
 }

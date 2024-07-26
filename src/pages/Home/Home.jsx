@@ -4,19 +4,19 @@ import "./home.css";
 
 function Home() {
   // Animation variants
-  const variants = {
-    hidden: { opacity: 0, y: -60 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 60 },
-  };
+  // const variants = {
+  //   hidden: { opacity: 0, y: -60 },
+  //   visible: { opacity: 1, y: 0 },
+  //   exit: { opacity: 0, y: 60 },
+  // };
   return (
     <motion.div
       className="home-wrapper"
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      variants={variants}
-      transition={{ duration: 0.8 }}
+      // initial="hidden"
+      // animate="visible"
+      // exit="exit"
+      // variants={variants}
+      // transition={{ duration: 0.8 }}
     >
       <div className="home-container">
         <section className="home-text-container">

@@ -1,22 +1,64 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import "./crew.css";
-import crewData from "./Data";
+import "./technology.css";
+import technologyData from "./Data";
 
-function Crew() {
+const ImageComponent = ({ imgSrc, title, imageVariants }) => (
+  <AnimatePresence mode="wait">
+    <motion.picture
+      key={imgSrc.desktop}
+      className="technology-image-container"
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={imageVariants}
+      transition={{
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+        duration: 0.5,
+      }}
+    >
+      <source media="(max-width: 1160px)" srcSet={imgSrc.mobile} />
+      <img
+        src={imgSrc.desktop}
+        alt={`${title}`}
+        className="technology-img"
+      />
+    </motion.picture>
+  </AnimatePresence>
+);
+
+const TextComponent = ({ title, parag, textVariants }) => (
+  <AnimatePresence mode="wait">
+    <motion.div
+      key={title}
+      className="technology-info-container"
+      initial="hidden"
+      animate="visible"
+      exit="exit"
+      variants={textVariants}
+      transition={{ duration: 0.5 }}
+    >
+      <h1 className="technology-terminology">THE TERMINOLOGY...</h1>
+      <h2 className="technology-title">{title}</h2>
+      <p className="technology-parag">{parag}</p>
+    </motion.div>
+  </AnimatePresence>
+);
+
+function Technology() {
   const [currentID, setID] = useState(0);
-  const updateCurrentID = (currentID) => {
-    setID(currentID);
-  };
+  const updateCurrentID = (currentID) => setID(currentID);
 
-  const { id, name, parag, role, imgSrc } = crewData[currentID];
+  const { id, title, parag, imgSrc } = technologyData[currentID];
 
-  // Animation variants
   const variants = {
     hidden: { opacity: 0, y: 60 },
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: -60 },
   };
+
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: { opacity: 1, scale: 1 },
@@ -30,76 +72,47 @@ function Crew() {
   };
 
   return (
-    <div className="crew-wrapper">
-      <div className="crew-container">
-        <p className="crew-caption">
-          <span className="crew-num">02</span>Meet Your Crew
+    <div className="technology-wrapper">
+      <div className="technology-container">
+        <p className="technology-caption">
+          <span className="technology-num">03</span>SPACE LAUNCH 101
         </p>
         <motion.div
-          className="crew-inner-container"
+          className="technology-inner-container"
           initial="hidden"
           animate="visible"
           exit="exit"
           variants={variants}
           transition={{ duration: 0.8 }}
         >
-          <article className="crew-text-container">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={name}
-                className="crew-info-container"
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                variants={textVariants}
-                transition={{ duration: 0.5 }}
-              >
-                <h1 className="crew-role">{role}</h1>
-                <h2 className="crew-name">{name}</h2>
-                <p
-                  className={`crew-parag ${id === 2 && "europa"} ${
-                    id === 1 && "mars"
-                  }`}
+          <ImageComponent imgSrc={imgSrc} title={title} imageVariants={imageVariants} />
+          <article className="technology-text-container">
+            <nav className="technology-links-container" role="navigation" aria-label="Technology links">
+              {technologyData.map((link) => (
+                <li
+                  key={link.id}
+                  onClick={() => updateCurrentID(link.id)}
+                  className={`technology-link ${link.id === currentID && "active"}`}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      updateCurrentID(link.id);
+                    }
+                  }}
+                  aria-current={link.id === currentID ? "page" : undefined}
+                  aria-label={`Technology ${link.id + 1}`}
                 >
-                  {parag}
-                </p>
-              </motion.div>
-            </AnimatePresence>
-            <ul className="crew-links-container">
-              {crewData.map((link) => {
-                let isActive = link.id === currentID;
-                return (
-                  <li
-                    key={link.id}
-                    onClick={() => updateCurrentID(link.id)}
-                    className={`crew-link ${isActive && "active"}`}
-                  ></li>
-                );
-              })}
-            </ul>
+                  {link.id + 1}
+                </li>
+              ))}
+            </nav>
+            <TextComponent title={title} parag={parag} textVariants={textVariants} />
           </article>
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={imgSrc}
-              className="crew-image-container"
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              variants={imageVariants}
-              transition={{
-                type: "spring",
-                stiffness: 100,
-                damping: 20,
-                duration: 0.5,
-              }}
-            >
-              <img src={imgSrc} alt={`${name}'s image`} className="crew-img" />
-            </motion.div>
-          </AnimatePresence>
         </motion.div>
       </div>
     </div>
   );
 }
 
-export default Crew;
+export default Technology;

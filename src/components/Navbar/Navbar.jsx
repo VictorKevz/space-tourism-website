@@ -36,8 +36,10 @@ function Navbar() {
               <span className="page-num">02</span>Crew
             </Link>
           </li>
-          <li className="nav-link">
-            <span className="page-num">03</span>Technology
+          <li>
+            <Link to="/technology" className="nav-link">
+              <span className="page-num">03</span>Technology
+            </Link>
           </li>
         </ul>
         <div className="toggle-container" onClick={toggleMenu}>

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import "./home.css";
 
 function Home() {
@@ -7,6 +8,11 @@ function Home() {
     hidden: { opacity: 0, y: -60 },
     visible: { opacity: 1, y: 0 },
     exit: { opacity: 0, y: 60 },
+  };
+  const linkVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: { opacity: 1, scale: 1 },
+    exit: { opacity: 0, scale: 0.5 },
   };
   return (
     <motion.div
@@ -28,9 +34,21 @@ function Home() {
             world experience!
           </p>
         </section>
-        <div className="home-link-container">
-          <a className="home-link">Explore</a>
-        </div>
+        <motion.div 
+        className="home-link-container"
+        initial="hidden"
+              animate="visible"
+              exit="exit"
+              variants={linkVariants}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                damping: 20,
+                duration: 0.5,
+              }}
+        >
+          <Link to="/destination" className="home-link">Explore</Link>
+        </motion.div>
       </div>
     </motion.div>
   );

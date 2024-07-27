@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 888px;
   background-image: url("../../assets/home/background-home-desktop.jpg");
   background-repeat: no-repeat;
   background-size: cover;
@@ -32,6 +32,8 @@
   font-weight: normal;
   letter-spacing: 4px;
   text-transform: uppercase;
+  color: var(--blue-300);
+
 }
 .home-title {
   font-size: 14.4rem;
@@ -45,7 +47,14 @@
   letter-spacing: 1.5px;
   line-height: 1.8;
 }
-.home-link-container {
+
+.home-link {
+  font-size: 3.2rem;
+  font-family: "Bellefair", serif;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--blue-900);
+  text-decoration: none;
   width: 272px;
   height: 272px;
   border-radius: 50%;
@@ -53,18 +62,28 @@
   justify-content: center;
   align-items: center;
   background-color: var(--white);
+  cursor: pointer;
+  position: relative;
 }
-.home-link {
-  font-size: 3.2rem;
-  font-family: "Bellefair", serif;
-  font-weight: normal;
-  text-transform: uppercase;
-  color: var(--blue-900);
+.home-link::before {
+  content: "";
+  width: 372px;
+  height: 372px;
+  border-radius: 50%;
+  background-color: white;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+}
+.home-link:hover:before{
+  opacity: .3;
+  transition: opacity .25s ease-in;
+
 }
 @media (width <= 1160px) {
   .home-wrapper {
     background-image: url("../../assets/home/background-home-tablet.jpg");
-    background-size: 100%;
+    background-size: cover;
     background-position: bottom;
   }
   .home-container {
@@ -81,9 +100,20 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 0 4rem;
   }
   .home-title {
     font-size: clamp(9rem, 8vw, 14.4rem);
+  }
+  
+}
+@media (width <= 767px) {
+  .home-wrapper {
+    background-image: url("../../assets/home/background-home-mobile.jpg");
+    height: 100%;
+    padding: 0 2.4rem;
+  }
+  .home-caption{
+    font-size: 1.8rem;
+  
   }
 }

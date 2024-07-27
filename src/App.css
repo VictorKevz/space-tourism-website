@@ -34,7 +34,7 @@ li{
 }
 .outer-container {
   display: flex;
-  min-height: 100vh;
+  min-height: 888px;
   justify-content: center;
   align-items: center;
   position: relative;

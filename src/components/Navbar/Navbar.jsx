@@ -1,48 +1,50 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import close from "../../assets/shared/icon-close.svg";
 import open from "../../assets/shared/icon-hamburger.svg";
 import logo from "../../assets/shared/logo.svg";
 import "./navbar.css";
 
+const links = [
+  { id: 0, path: "/", label: "Home" },
+  { id: 1, path: "/destination", label: "Destination" },
+  { id: 2, path: "/crew", label: "Crew" },
+  { id: 3, path: "/technology", label: "Technology" },
+];
+
 function Navbar() {
-  const [isOpen, setopen] = useState(false);
-  function toggleMenu() {
-    setopen(!isOpen);
-  }
+  const [isOpen, setOpen] = useState(false);
+  const toggleMenu = () => setOpen(!isOpen);
 
   return (
     <header className="nav-wrapper">
-      <nav className="nav-container">
+      <nav className="nav-container" role="navigation" aria-label="Main navigation">
         <div className="logo-container">
           <img src={logo} alt="logo" className="nav-logo" />
         </div>
-        <div className="divider"></div>
+        <div className="divider" aria-hidden="true"></div>
         <ul className={`links-container ${isOpen ? "open" : ""}`}>
-          <li>
-            <Link to="/" className="nav-link">
-              <span className="page-num">00</span>Home
-            </Link>
-          </li>
-          
-          <li>
-            <Link to="/destination" className="nav-link">
-              <span className="page-num">01</span>Destination
-            </Link>
-          </li>
-
-          <li>
-            <Link to="/crew" className="nav-link">
-              <span className="page-num">02</span>Crew
-            </Link>
-          </li>
-          <li>
-            <Link to="/technology" className="nav-link">
-              <span className="page-num">03</span>Technology
-            </Link>
-          </li>
+          {links.map(({ id, path, label }) => (
+            <li key={id}>
+              <NavLink 
+                to={path} 
+                className="nav-link" 
+                activeClassName="active"
+                exact
+              >
+                <span className="page-num">0{id}</span>{label}
+              </NavLink>
+            </li>
+          ))}
         </ul>
-        <div className="toggle-container" onClick={toggleMenu}>
+        <div 
+          className="toggle-container" 
+          onClick={toggleMenu} 
+          role="button" 
+          tabIndex={0} 
+          aria-label="Toggle menu" 
+          aria-expanded={isOpen}
+        >
           <img
             src={isOpen ? close : open}
             className={`${isOpen ? "close-icon" : "open-icon"}`}
@@ -50,7 +52,7 @@ function Navbar() {
           />
         </div>
       </nav>
-      <div className={`mask ${isOpen ? "open" : ""}`}></div>
+      <div className={`mask ${isOpen ? "open" : ""}`} aria-hidden={!isOpen}></div>
     </header>
   );
 }
